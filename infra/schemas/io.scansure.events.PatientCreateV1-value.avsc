@@ -1,0 +1,22 @@
+{
+  "type": "record",
+  "name": "PatientCreateV1",
+  "namespace": "io.scansure.events",
+  "fields": [
+    {"name": "event_id", "type": "string"},
+    {"name": "idempotency_key", "type": ["null","string"], "default": null},
+    {"name": "source_system", "type": "string"},
+    {"name": "timestamp", "type": "long"},
+    {"name": "payload", "type": {
+      "type": "record",
+      "name": "PatientPayload",
+      "fields": [
+        {"name": "name", "type": ["null","string"], "default": null},
+        {"name": "dob", "type": ["null","string"], "default": null},
+        {"name": "mobile", "type": ["null","string"], "default": null},
+        {"name": "aadhaar", "type": ["null","string"], "default": null},
+        {"name": "address", "type": ["null","string"], "default": null}
+      ]
+    }}
+  ]
+}

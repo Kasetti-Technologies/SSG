@@ -1,0 +1,24 @@
+{
+  "type": "record",
+  "name": "OrderCreatedV1",
+  "namespace": "io.scansure.events",
+  "fields": [
+    { "name": "event_id", "type": "string" },
+    { "name": "source_system", "type": "string" },
+    { "name": "timestamp", "type": "long", "logicalType": "timestamp-millis" },
+    {
+      "name": "payload",
+      "type": {
+        "type": "record",
+        "name": "OrderPayload",
+        "fields": [
+          { "name": "order_id", "type": "string" },
+          { "name": "upi_id", "type": ["null", "string"], "default": null },
+          { "name": "bahmni_instance_id", "type": ["null", "string"], "default": null },
+          { "name": "bahmni_order_id", "type": ["null", "string"], "default": null },
+          { "name": "service_items", "type": { "type": "array", "items": "string" } }
+        ]
+      }
+    }
+  ]
+}

@@ -1,0 +1,24 @@
+{
+  "type": "record",
+  "name": "BookingPaymentSuccessV1",
+  "namespace": "io.scansure.events",
+  "fields": [
+    { "name": "event_id", "type": "string" },
+    { "name": "source_system", "type": "string" },
+    { "name": "timestamp", "type": "long", "logicalType": "timestamp-millis" },
+    {
+      "name": "payload",
+      "type": {
+        "type": "record",
+        "name": "PaymentPayload",
+        "fields": [
+          { "name": "upi_id", "type": ["null", "string"], "default": null },
+          { "name": "order_id", "type": "string" },
+          { "name": "amount", "type": "double" },
+          { "name": "currency", "type": "string" },
+          { "name": "status", "type": "string" }
+        ]
+      }
+    }
+  ]
+}

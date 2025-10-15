@@ -1,0 +1,22 @@
+{
+  "type": "record",
+  "name": "PatientResolvedV1",
+  "namespace": "io.scansure.events",
+  "fields": [
+    { "name": "event_id", "type": "string" },
+    { "name": "source_system", "type": "string" },
+    { "name": "timestamp", "type": "long", "logicalType": "timestamp-millis" },
+    {
+      "name": "payload",
+      "type": {
+        "type": "record",
+        "name": "ResolvedPayload",
+        "fields": [
+          { "name": "upi_id", "type": "string" },
+          { "name": "match_confidence", "type": "float" },
+          { "name": "merged_records", "type": { "type": "array", "items": "string" } }
+        ]
+      }
+    }
+  ]
+}

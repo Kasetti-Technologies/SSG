@@ -1,0 +1,23 @@
+{
+  "type": "record",
+  "name": "PatientAuditV1",
+  "namespace": "io.scansure.events",
+  "fields": [
+    { "name": "event_id", "type": "string" },
+    { "name": "source_system", "type": "string" },
+    { "name": "timestamp", "type": "long", "logicalType": "timestamp-millis" },
+    {
+      "name": "payload",
+      "type": {
+        "type": "record",
+        "name": "AuditPayload",
+        "fields": [
+          { "name": "upi_id", "type": "string" },
+          { "name": "action", "type": "string" },
+          { "name": "snapshot", "type": "string" },
+          { "name": "performed_by", "type": "string" }
+        ]
+      }
+    }
+  ]
+}
